@@ -1,6 +1,6 @@
 #include "xparameters.h"
 #include "xgpio.h"
-#include "xutil.h"
+//#include "xutil.h"
 #include "xgpiops.h"
 
 static XGpioPs psGpioInstancePtr;
@@ -13,7 +13,7 @@ int main (void)
 
       XGpio sw, led;
 	  int i, pshb_check, sw_check;
-	  static XGpio GPIOInstance_Ptr;
+	  //static XGpio GPIOInstance_Ptr;
 	  XGpioPs_Config*GpioConfigPtr;
 	  int xStatus;
 	  int iPinNumberEMIO = 54;
@@ -23,10 +23,10 @@ int main (void)
 	  xil_printf("-- Start of the Program --\r\n");
 
 	  // AXI GPIO switches Intialization
-	  XGpio_Initialize(&sw, ??);
+	  XGpio_Initialize(&sw, XPAR_GPIO_1_DEVICE_ID);
 
 	  // AXI GPIO leds Intialization
-	  XGpio_Initialize(&led, ??);
+	  XGpio_Initialize(&led, XPAR_GPIO_0_DEVICE_ID);
 
 	  // PS GPIO Intialization
 	  GpioConfigPtr = XGpioPs_LookupConfig(XPAR_PS7_GPIO_0_DEVICE_ID);
